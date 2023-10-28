@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word Buddy</title>
+</head>
+
+<body>
+
+    <form method="POST">
+        <input type="text" id="param1" name="inputWord" required>
+        <!-- <input type="submit" value="Submit"> -->
+        <input type="submit" value="Submit" formaction="/">
+
+    </form>
+    <form method="POST">
+        <input type="submit" value="hint" formaction="/hint">
+        <input type="submit" value="giveUp" formaction="/giveUp">
+        <input type="submit" value="reset" formaction="/reset">
+
+    </form>
+
+    {% if message %}
+    <table>
+        <tr>
+            <td>{{ message }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    {% if current %}
+    <table>
+        <tr>
+            <td>{{ current }}</td>
+            <td>{{ currentValue }}</td>
+        </tr>
+    </table>
+    {% endif %}
+
+    <h2>Entries:</h2>
+    <table>
+        {% for key, value in entry.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
